@@ -46,7 +46,7 @@ module.exports = (env, argv) => {
       path: DIST_DIR,
       filename: isProdBuild ? '[name].bundle.[chunkhash].js' : '[name].js',
       publicPath: PUBLIC_URL, // Used by HtmlWebPackPlugin for asset prefix
-      devtoolModuleFilenameTemplate: function(info) {
+      devtoolModuleFilenameTemplate: function (info) {
         if (isProdBuild) {
           return `webpack:///${info.resourcePath}`;
         } else {
@@ -141,6 +141,8 @@ module.exports = (env, argv) => {
       hot: true,
       open: true,
       port: 3000,
+      host: '0.0.0.0',
+      allowedHosts: ['localhost', '.gitpod.io'],
       client: {
         overlay: { errors: true, warnings: false },
       },
